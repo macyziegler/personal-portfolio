@@ -297,7 +297,7 @@ def render_hero_section(name, headline, subheadline, snapshot, headshot_path):
                     <p class="hero-positioning">{headline}</p>
                     <p class="hero-subheadline">{subheadline}</p>
                     <p class="hero-position">{position}</p>
-                    <a href="#impact" class="hero-explore-link">Explore Selected Work ↓</a>
+                    <a href="#impact" class="hero-explore-link">Explore Career Highlights ↓</a>
                 </div>
             </div>
         </div>
@@ -524,7 +524,7 @@ def render_impact_grid(metrics, case_studies=None):
             cs_idx = m.get("case_study_index")
             if cs_idx is not None and case_studies:
                 st.button(
-                    "View case study →",
+                    "Learn more →",
                     key=f"impact_case_{col_key}",
                     on_click=_open_case_study,
                     args=(cs_idx,),
