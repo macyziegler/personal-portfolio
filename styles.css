@@ -191,8 +191,7 @@ header {visibility: hidden;}
 .hero-position {
     font-size: 0.9rem;
     font-weight: 400;
-    color: var(--text-primary) !important;
-    font-style: italic;
+    color: var(--text-secondary) !important;
     margin-bottom: 0.4rem;
     line-height: 1.5;
 }

@@ -39,7 +39,7 @@ RESUME_FILE = "app/static/resume.pdf"  # Served via Streamlit static file servin
 
 # ---------- NAVIGATION ----------
 NAV_BRAND = "MACY ZIEGLER"
-NAV_ITEMS = ["Experience", "About", "LinkedIn", "Download Resume"]
+NAV_ITEMS = ["Work", "Experience", "About", "LinkedIn", "Download Resume"]
 
 # ---------- PROFESSIONAL SUPERPOWERS ----------
 SUPERPOWERS_LABEL = "WHAT SETS ME APART"
@@ -149,7 +149,7 @@ METRICS = [
         "value": "37%",
         "label": "Shrink Reduction",
         "description": "Built a daily inventory shrink dashboard that enabled earlier mitigation and contributed to a 37% reduction in the year following implementation.",
-        "behind_metric": "The data existed. The operation just couldn't see it soon enough.",
+        "behind_metric": "The data existed. The operation just couldn't see it in time to act.",
         "case_study_index": 1,
     },
     {
@@ -464,7 +464,7 @@ EXPERIENCE = [
             "Built automated AI evaluation framework reducing testing time by ~35 hours per enhancement cycle",
             "Lead product planning, prioritization, and stakeholder communication for senior leadership",
         ],
-        "capabilities": ["Snowflake Cortex", "Python", "AI Evaluation", "Semantic Modeling", "Product Ownership"],
+        "capabilities": ["Snowflake Cortex", "Python", "AI Evaluation", "Product Ownership"],
     },
     {
         "title": "Senior F&B/Merchandise Analyst",
@@ -479,10 +479,8 @@ EXPERIENCE = [
             "Led stockroom analytics and operating-model redesign, delivering $2.5M+ in annualized savings",
             "Owned end-to-end delivery of Disney's first Merchandise mobile reporting product for 1,000+ leaders",
             "Designed and launched enterprise-wide shrink analytics solution, reducing reporting latency from 3 months to 24 hours",
-            "Directed design and deployment of Python-based financial and Guest behavior forecasting models",
-            "Provided day-to-day leadership and mentorship to a junior analyst on a high-visibility initiative",
         ],
-        "capabilities": ["Power BI", "Tableau", "Python", "Forecasting", "Cross-Functional Leadership"],
+        "capabilities": ["Power BI", "Tableau", "Python", "Forecasting"],
     },
     {
         "title": "Labor Transformation Analyst",
@@ -498,7 +496,7 @@ EXPERIENCE = [
             "Built Tableau workforce analytics dashboards providing real-time staffing visibility",
             "Built attrition and hiring forecasting models using historical trends and seasonality",
         ],
-        "capabilities": ["Tableau", "Workforce Planning", "Forecasting", "Staffing Models", "SQL"],
+        "capabilities": ["Tableau", "Workforce Planning", "Forecasting", "SQL"],
     },
     {
         "title": "BS Industrial Engineering & Engineering Management",

@@ -28,6 +28,8 @@ def render_navigation(brand, items, resume_file, linkedin_url=""):
             nav_links += f'<a href="{resume_href}" download="Macy_Ziegler_Resume.pdf" class="nav-btn">{item}</a>'
         elif "linkedin" in item.lower():
             nav_links += f'<a href="{linkedin_url}" target="_blank" rel="noopener noreferrer">{item}</a>'
+        elif item.lower() == "work":
+            nav_links += f'<a href="#impact">{item}</a>'
         else:
             section_id = item.lower().replace(" ", "-")
             nav_links += f'<a href="#{section_id}">{item}</a>'
@@ -75,7 +77,7 @@ def render_ai_section(label, headline, copy, applications, human_label, human_va
         f'color:#7A7A8A;display:block;margin-bottom:0.6rem;">{label}</span>'
         f'<span style="font-size:1.5rem;font-weight:700;color:#1A1A2E;'
         f'line-height:1.2;display:block;margin-bottom:1rem;">{headline}</span>'
-        f'<span style="font-size:0.92rem;color:#4A4A5A;line-height:1.7;display:block;">'
+        f'<span style="font-size:0.92rem;color:#4A4A5A;line-height:1.7;display:block;max-width:900px;">'
         f'{copy_html}</span>'
 
         # Divider
@@ -99,12 +101,12 @@ def render_ai_section(label, headline, copy, applications, human_label, human_va
 
 
 def render_in_the_room(label, featured, supporting):
-    """Render the 'In the Room' editorial section as a dark banner."""
+    """Render the 'In the Room' editorial section with navy featured panel."""
 
     # SVG icons for supporting items
     icons = {
         "system": (
-            '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+            '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
             'stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
             '<rect x="16" y="16" width="6" height="6" rx="1"/>'
             '<rect x="2" y="16" width="6" height="6" rx="1"/>'
@@ -113,13 +115,13 @@ def render_in_the_room(label, featured, supporting):
             '<path d="M12 12V8"/></svg>'
         ),
         "story": (
-            '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+            '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
             'stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
             '<path d="M2 3h20"/><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"/>'
             '<path d="m7 21 5-5 5 5"/><path d="M7 11l3-3 2 2 4-4"/></svg>'
         ),
         "relationships": (
-            '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+            '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
             'stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
             '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>'
             '<circle cx="9" cy="7" r="4"/>'
@@ -130,60 +132,53 @@ def render_in_the_room(label, featured, supporting):
 
     # Featured question icon
     question_icon = (
-        '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+        '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
         'stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
         '<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>'
         '<path d="M12 8v4"/><path d="M12 16h.01"/></svg>'
     )
 
-    # Build supporting items
+    # Build supporting items (light background style)
     supporting_html = ""
     for i, item in enumerate(supporting):
-        border_top = 'border-top:1px solid rgba(255,255,255,0.08);padding-top:1rem;margin-top:1rem;' if i > 0 else ''
+        border_top = 'border-top:1px solid #E5E7EB;padding-top:1rem;margin-top:1rem;' if i > 0 else ''
         icon_svg = icons.get(item["icon"], "")
         supporting_html += (
             f'<div style="{border_top}display:flex;gap:0.75rem;align-items:center;">'
-            f'<div style="color:#5B8DEF;flex-shrink:0;">{icon_svg}</div>'
+            f'<div style="color:#2955D4;flex-shrink:0;">{icon_svg}</div>'
             f'<div>'
-            f'<span style="font-size:0.82rem;font-weight:600;color:#FFFFFF;'
-            f'text-transform:uppercase;letter-spacing:0.05em;display:block;margin-bottom:0.25rem;">'
+            f'<span style="font-size:0.82rem;font-weight:600;color:#1A1A2E;'
+            f'text-transform:uppercase;letter-spacing:0.05em;display:block;margin-bottom:0.2rem;">'
             f'{item["title"]}</span>'
-            f'<span style="font-size:0.85rem;color:#9AA5B8;line-height:1.55;display:block;">'
+            f'<span style="font-size:0.85rem;color:#4A4A5A;line-height:1.55;display:block;">'
             f'{item["description"]}</span>'
             f'</div></div>'
         )
 
-    # Build headline with highlight
     headline = featured["headline"]
-    highlight = featured.get("highlight", "")
-    if highlight and highlight in headline:
-        headline_html = headline.replace(
-            highlight,
-            f'<span style="color:#5B8DEF;">{highlight}</span>'
-        )
-    else:
-        headline_html = headline
 
     html = (
-        '<div style="background:#1A1A2E;border-radius:12px;padding:2.5rem 3rem;margin:0.5rem 0;">'
+        '<div style="background:#F8F9FB;border:1px solid #E5E7EB;border-radius:12px;'
+        'padding:2.5rem 3rem;margin:0.5rem 0;">'
         # Label
-        f'<span style="font-family:\'JetBrains Mono\',monospace;font-size:1rem;'
-        f'font-weight:600;letter-spacing:0.15em;text-transform:uppercase;'
-        f'color:#7A8AAA;display:block;margin-bottom:1.5rem;">{label}</span>'
+        f'<span style="font-family:\'JetBrains Mono\',monospace;font-size:0.85rem;'
+        f'font-weight:600;letter-spacing:0.12em;text-transform:uppercase;'
+        f'color:#1A1A2E;display:block;margin-bottom:1.5rem;">{label}</span>'
         # Two-column grid
-        '<div style="display:grid;grid-template-columns:42% 58%;gap:3rem;">'
-        # Left: Featured
-        '<div style="border-left:3px solid #5B8DEF;padding-left:1.5rem;display:flex;flex-direction:column;justify-content:center;">'
-        f'<div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">'
+        '<div style="display:grid;grid-template-columns:42% 58%;gap:2.5rem;">'
+        # Left: Navy featured panel
+        '<div style="background:#1A1A2E;border-radius:10px;padding:2rem;'
+        'display:flex;flex-direction:column;justify-content:center;">'
+        f'<div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.75rem;">'
         f'<div style="color:#5B8DEF;flex-shrink:0;">{question_icon}</div>'
-        f'<span style="font-size:1.2rem;font-weight:700;color:#FFFFFF;'
-        f'line-height:1.3;">{headline_html}</span>'
+        f'<span style="font-size:1.05rem;font-weight:700;color:#FFFFFF;'
+        f'line-height:1.3;">{headline}</span>'
         f'</div>'
-        f'<span style="font-size:0.9rem;color:#9AA5B8;line-height:1.65;display:block;">'
+        f'<span style="font-size:0.88rem;color:#9AA5B8;line-height:1.6;display:block;">'
         f'{featured["description"]}</span>'
         '</div>'
-        # Right: Supporting
-        f'<div>{supporting_html}</div>'
+        # Right: Supporting on light background
+        f'<div style="display:flex;flex-direction:column;justify-content:center;">{supporting_html}</div>'
         '</div></div>'
     )
 
@@ -529,7 +524,7 @@ def render_impact_grid(metrics, case_studies=None):
             cs_idx = m.get("case_study_index")
             if cs_idx is not None and case_studies:
                 st.button(
-                    "View more details →",
+                    "View case study →",
                     key=f"impact_case_{col_key}",
                     on_click=_open_case_study,
                     args=(cs_idx,),
@@ -870,22 +865,21 @@ def render_beyond_the_work(label, headline, yoga_label, yoga_copy, yoga_image, y
         f'font-weight:600;letter-spacing:0.15em;text-transform:uppercase;'
         f'color:#7A7A8A;display:block;margin-bottom:0.5rem;">{label}</span>'
         f'<span style="font-size:1.5rem;font-weight:700;color:#1A1A2E;'
-        f'line-height:1.2;display:block;margin-bottom:2rem;">{headline}</span>'
-        # Yoga row: image left, text right
-        '<div style="display:flex;align-items:center;gap:1.5rem;margin-bottom:2rem;">'
-        f'<div style="flex:0 0 180px;">{yoga_img}</div>'
+        f'line-height:1.2;display:block;margin-bottom:1.5rem;">{headline}</span>'
+        # Two panels side by side
+        '<div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">'
+        # Yoga panel
         '<div>'
+        f'<div style="height:200px;overflow:hidden;border-radius:10px;margin-bottom:1rem;">{yoga_img}</div>'
         f'<span style="font-family:\'JetBrains Mono\',monospace;font-size:0.85rem;'
         f'font-weight:600;letter-spacing:0.1em;text-transform:uppercase;'
         f'color:#2955D4;display:block;margin-bottom:0.4rem;">{yoga_label}</span>'
         f'<span style="font-size:0.92rem;color:#4A4A5A;line-height:1.65;display:block;">'
         f'{yoga_copy}</span>'
         '</div>'
-        '</div>'
-        # Dogs row: image left, text right
-        '<div style="display:flex;align-items:center;gap:1.5rem;">'
-        f'<div style="flex:0 0 180px;">{home_img}</div>'
+        # Dogs panel
         '<div>'
+        f'<div style="height:200px;overflow:hidden;border-radius:10px;margin-bottom:1rem;">{home_img}</div>'
         f'<span style="font-family:\'JetBrains Mono\',monospace;font-size:0.85rem;'
         f'font-weight:600;letter-spacing:0.1em;text-transform:uppercase;'
         f'color:#2955D4;display:block;margin-bottom:0.4rem;">{home_label}</span>'
