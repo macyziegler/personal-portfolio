@@ -279,7 +279,10 @@ def render_hero_section(name, headline, subheadline, snapshot, headshot_path):
             ext = "jpeg"
         img_html = (
             f'<img src="data:image/{ext};base64,{img_data}" '
-            f'alt="Professional headshot of {name}" class="hero-headshot" />'
+            f'alt="Professional headshot of {name}" '
+            f'style="width:300px;height:300px;object-fit:cover;object-position:center 25%;'
+            f'border-radius:16px;border:1px solid #E5E7EB;display:block;'
+            f'box-shadow:0 2px 8px rgba(0,0,0,0.06);" />'
         )
     else:
         img_html = '<div class="hero-headshot-placeholder"></div>'
