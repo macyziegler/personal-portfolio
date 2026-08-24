@@ -153,6 +153,7 @@ header {visibility: hidden;}
 .hero-img-col {
     display: flex;
     justify-content: center;
+    align-self: start;
 }
 
 .hero-headshot {
@@ -162,7 +163,8 @@ header {visibility: hidden;}
     border: 1px solid var(--border-light);
     box-shadow: var(--shadow-card);
     object-fit: cover;
-    object-position: 50% 15%;
+    object-position: center 25%;
+    display: block;
 }
 
 .hero-headshot-placeholder {
@@ -373,9 +375,6 @@ header {visibility: hidden;}
 [data-testid="stImage"] img {
     border-radius: var(--radius-lg);
     border: 1px solid var(--border-light);
-    box-shadow: var(--shadow-card);
-    object-fit: cover;
-    object-position: 50% 15%;
     max-height: 300px;
 }
 
