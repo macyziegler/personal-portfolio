@@ -166,15 +166,15 @@ def render_in_the_room(label, featured, supporting):
         f'color:#1A1A2E;display:block;margin-bottom:1.5rem;">{label}</span>'
         # Two-column grid
         '<div style="display:grid;grid-template-columns:42% 58%;gap:2.5rem;">'
-        # Left: Navy featured panel
-        '<div style="background:#1A1A2E;border-radius:10px;padding:2rem;'
+        # Left: Featured (light with blue border)
+        '<div style="border-left:3px solid #2955D4;padding-left:1.5rem;'
         'display:flex;flex-direction:column;justify-content:center;">'
         f'<div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.75rem;">'
-        f'<div style="color:#5B8DEF;flex-shrink:0;">{question_icon}</div>'
-        f'<span style="font-size:1.05rem;font-weight:700;color:#FFFFFF;'
+        f'<div style="color:#2955D4;flex-shrink:0;">{question_icon}</div>'
+        f'<span style="font-size:1.1rem;font-weight:700;color:#1A1A2E;'
         f'line-height:1.3;">{headline}</span>'
         f'</div>'
-        f'<span style="font-size:0.88rem;color:#9AA5B8;line-height:1.6;display:block;">'
+        f'<span style="font-size:0.88rem;color:#4A4A5A;line-height:1.6;display:block;">'
         f'{featured["description"]}</span>'
         '</div>'
         # Right: Supporting on light background
