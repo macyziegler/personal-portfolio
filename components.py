@@ -866,7 +866,7 @@ def render_beyond_the_work(label, headline, yoga_label, yoga_copy, yoga_image, y
     if wedding_label and wedding_copy:
         wedding_panel = (
             '<div>'
-            f'<div style="height:420px;overflow:hidden;border-radius:10px;margin-bottom:1rem;">{wedding_img}</div>'
+            f'<div style="height:550px;overflow:hidden;border-radius:10px;margin-bottom:1rem;">{wedding_img}</div>'
             f'<span style="font-family:\'JetBrains Mono\',monospace;font-size:0.85rem;'
             f'font-weight:600;letter-spacing:0.1em;text-transform:uppercase;'
             f'color:#2955D4;display:block;margin-bottom:0.4rem;">{wedding_label}</span>'
@@ -889,7 +889,7 @@ def render_beyond_the_work(label, headline, yoga_label, yoga_copy, yoga_image, y
         f'<div style="display:grid;grid-template-columns:{grid_cols};gap:2rem;">'
         # Yoga panel
         '<div>'
-        f'<div style="height:420px;overflow:hidden;border-radius:10px;margin-bottom:1rem;">{yoga_img}</div>'
+        f'<div style="height:550px;overflow:hidden;border-radius:10px;margin-bottom:1rem;">{yoga_img}</div>'
         f'<span style="font-family:\'JetBrains Mono\',monospace;font-size:0.85rem;'
         f'font-weight:600;letter-spacing:0.1em;text-transform:uppercase;'
         f'color:#2955D4;display:block;margin-bottom:0.4rem;">{yoga_label}</span>'
@@ -898,7 +898,7 @@ def render_beyond_the_work(label, headline, yoga_label, yoga_copy, yoga_image, y
         '</div>'
         # Dogs panel
         '<div>'
-        f'<div style="height:420px;overflow:hidden;border-radius:10px;margin-bottom:1rem;">{home_img}</div>'
+        f'<div style="height:550px;overflow:hidden;border-radius:10px;margin-bottom:1rem;">{home_img}</div>'
         f'<span style="font-family:\'JetBrains Mono\',monospace;font-size:0.85rem;'
         f'font-weight:600;letter-spacing:0.1em;text-transform:uppercase;'
         f'color:#2955D4;display:block;margin-bottom:0.4rem;">{home_label}</span>'
