@@ -829,7 +829,8 @@ def render_timeline_entry(entry):
 
 
 def render_beyond_the_work(label, headline, yoga_label, yoga_copy, yoga_image, yoga_alt,
-                           home_label, home_copy, home_image, home_alt):
+                           home_label, home_copy, home_image, home_alt,
+                           wedding_label="", wedding_copy="", wedding_image="", wedding_alt=""):
     """Render the Beyond the Work personal section."""
     import base64
     from pathlib import Path
@@ -844,12 +845,13 @@ def render_beyond_the_work(label, headline, yoga_label, yoga_copy, yoga_image, y
                 ext = "jpeg"
             return (
                 f'<img src="data:image/{ext};base64,{b64}" alt="{alt_text}" '
-                f'style="width:100%;border-radius:10px;border:1px solid #E5E7EB;" />'
+                f'style="width:100%;height:100%;object-fit:cover;border-radius:10px;'
+                f'border:1px solid #E5E7EB;display:block;" />'
             )
         else:
             return (
                 f'<div style="background:#F0F2F5;border:1px dashed #D0D3DA;'
-                f'border-radius:10px;padding:3rem 1.5rem;text-align:center;">'
+                f'border-radius:10px;padding:3rem 1.5rem;text-align:center;height:100%;">'
                 f'<span style="font-family:\'JetBrains Mono\',monospace;font-size:0.65rem;'
                 f'color:#7A7A8A;letter-spacing:0.1em;text-transform:uppercase;">'
                 f'{placeholder_label}</span></div>'
@@ -857,6 +859,23 @@ def render_beyond_the_work(label, headline, yoga_label, yoga_copy, yoga_image, y
 
     yoga_img = _img_html(yoga_image, yoga_alt, "YOGA PHOTO")
     home_img = _img_html(home_image, home_alt, "MILES & BARKLEY")
+    wedding_img = _img_html(wedding_image, wedding_alt, "WEDDING PHOTO") if wedding_image else ""
+
+    # Third panel HTML
+    wedding_panel = ""
+    if wedding_label and wedding_copy:
+        wedding_panel = (
+            '<div>'
+            f'<div style="height:200px;overflow:hidden;border-radius:10px;margin-bottom:1rem;">{wedding_img}</div>'
+            f'<span style="font-family:\'JetBrains Mono\',monospace;font-size:0.85rem;'
+            f'font-weight:600;letter-spacing:0.1em;text-transform:uppercase;'
+            f'color:#2955D4;display:block;margin-bottom:0.4rem;">{wedding_label}</span>'
+            f'<span style="font-size:0.92rem;color:#4A4A5A;line-height:1.65;display:block;">'
+            f'{wedding_copy}</span>'
+            '</div>'
+        )
+
+    grid_cols = "1fr 1fr 1fr" if wedding_panel else "1fr 1fr"
 
     html = (
         '<div>'
@@ -866,8 +885,8 @@ def render_beyond_the_work(label, headline, yoga_label, yoga_copy, yoga_image, y
         f'color:#7A7A8A;display:block;margin-bottom:0.5rem;">{label}</span>'
         f'<span style="font-size:1.5rem;font-weight:700;color:#1A1A2E;'
         f'line-height:1.2;display:block;margin-bottom:1.5rem;">{headline}</span>'
-        # Two panels side by side
-        '<div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">'
+        # Panels
+        f'<div style="display:grid;grid-template-columns:{grid_cols};gap:2rem;">'
         # Yoga panel
         '<div>'
         f'<div style="height:200px;overflow:hidden;border-radius:10px;margin-bottom:1rem;">{yoga_img}</div>'
@@ -886,6 +905,8 @@ def render_beyond_the_work(label, headline, yoga_label, yoga_copy, yoga_image, y
         f'<span style="font-size:0.92rem;color:#4A4A5A;line-height:1.65;display:block;">'
         f'{home_copy}</span>'
         '</div>'
+        # Wedding panel (if present)
+        f'{wedding_panel}'
         '</div>'
         '</div>'
     )

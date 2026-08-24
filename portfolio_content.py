@@ -530,6 +530,14 @@ BEYOND_HOME_COPY = (
 BEYOND_HOME_IMAGE = "assets/miles_barkley.jpg"
 BEYOND_HOME_ALT = "Macy's dogs, Miles and Barkley"
 
+BEYOND_WEDDING_LABEL = "RECENTLY MARRIED"
+BEYOND_WEDDING_COPY = (
+    "I married my best friend in 2026. Life outside of work is full of "
+    "adventure, laughter, and building something meaningful together."
+)
+BEYOND_WEDDING_IMAGE = "assets/wedding.jpg"
+BEYOND_WEDDING_ALT = "Macy and Ian on their wedding day"
+
 # ---------- CONTACT ----------
 CONTACT_HEADLINE = "Let's connect."
 CONTACT_TEXT = (
