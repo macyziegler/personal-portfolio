@@ -488,7 +488,7 @@ def render_impact_grid(metrics, case_studies=None):
     st.markdown(
         '<p style="font-family:\'JetBrains Mono\',monospace;font-size:0.62rem;'
         'font-weight:600;letter-spacing:0.15em;text-transform:uppercase;'
-        'color:#7A7A8A;margin-bottom:0.75rem;margin-top:0;">HIGHLIGHTED IMPACT</p>',
+        'color:#7A7A8A;margin-bottom:0.75rem;margin-top:0;">CAREER HIGHLIGHTS</p>',
         unsafe_allow_html=True,
     )
 
